@@ -1,17 +1,38 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  let indexes = [];
+
+  for(let i = 0; i < array.length; i++){
+     for(let j = i + 1; j < array.length; j++){
+        if (array[i] + array[j] === target) {
+      indexes.push(i);
+      indexes.push(j);
+        }
+     }
+  }
+  if (indexes.length > 0) {
+    return true
+  } else {
+    return false
+  }
 }
 
 /* 
-  Write the Big O time complexity of your function here
+  O(n2)
 */
 
 /* 
-  Add your pseudocode here
+  add each number to each other number
+  if there is ever a result that matches the target number put those numbers in an array
+  at the conclusion of the function, if there's anything in that array, return true.  If not, return false.
 */
 
 /*
-  Add written explanation of your solution here
+  line 4: for however long the array is,
+  line 5: and for however many items are after it,
+  line 6: add each pair of numbers, and if any of them match the target number,
+  line 7: add the first one to a blank array
+  line 8: and then add the second one to the same array
+  line 12: if line 6 found a positive match, return true.  If not, false.
 */
 
 // You can run `node index.js` to view these console logs
